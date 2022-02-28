@@ -10,8 +10,8 @@ We will design the database as well as the API the app uses. Intended functional
 
 This is our initial wireframe:
 
-<img src="wireframe.pdf">
+<img src="wireframe.png">
 
 And this is our initial ERD:
 
-<img src="ERD.pdf">
+<img src="ERD.png">
