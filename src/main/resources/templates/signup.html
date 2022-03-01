@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<br><h2> Create your account </h2><br>
+
+<div class="form-container">
+    <form name="signup" class="form-location" method="POST" action="/signup" onsubmit="return validateForm()">
+        <span>Username:</span>
+        <input type="text" name="username"  minlength="3">
+        <br><span id="usernameMessage" class="error-message-small"></span><br>
+        <span>First Name:</span>
+        <input type="text" name="fName">
+        <br><br>
+        <span>Last Name:</span>
+        <input type="text" name="lName">
+        <br><br>
+        <span>Password:</span>
+        <input type="password" name="password" minlength="3">
+        <br><br>
+
+        <button id="signUpButton"> Sign up </button>
+    </form><br>
+</div>
+</body>
+</html>

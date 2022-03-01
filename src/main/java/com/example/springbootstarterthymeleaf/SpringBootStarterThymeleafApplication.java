@@ -9,12 +9,15 @@ import org.springframework.web.bind.annotation.*;
 @SpringBootApplication
 public class SpringBootStarterThymeleafApplication {
 
-	@RequestMapping("/")
-	@ResponseBody
-	String home() {
-		return "Root";
+	@RequestMapping("/signup")
+	public String signup() {
+		return "signup";
 	}
 
+	@RequestMapping("/login")
+	public String login() {
+		return "login";
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootStarterThymeleafApplication.class, args);
