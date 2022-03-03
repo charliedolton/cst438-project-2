@@ -21,6 +21,15 @@ public class SpringBootStarterThymeleafApplication {
 		return "signup";
 	}
 
+	@PostMapping("/signup") // post method for signUp
+	public @ResponseBody String addUser(@RequestParam String username,
+										@RequestParam String fName,
+										@RequestParam String lName,
+	                                    @RequestParam String password) {// parameters that this post method expect
+		return "Hello " + username + " " + fName + lName + "\n" +
+				"your password is " + password;
+	}
+
 	@RequestMapping("/login")
 	public String login() {
 		return "login";
@@ -53,6 +62,19 @@ public class SpringBootStarterThymeleafApplication {
 	public @ResponseBody Iterable<User> getAllUsers() {
 		// This returns a JSON or XML with the users
 		return userRepository.findAll();
+	}
+	@GetMapping(path="api/userIsTaken")
+	public @ResponseBody boolean checkForUser(String username) {//checks for user by username
+		User user1 = userRepository.findByUsername(username);
+		Boolean returnVal;
+		if(user1 == null){
+			returnVal = false;
+		}
+		else{
+			returnVal = true;
+		}
+
+		return returnVal;
 	}
 
 	public static void main(String[] args) {

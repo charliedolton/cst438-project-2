@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link th:href="@{/main.css}" rel="stylesheet"/>
+
+</head>
 <body>
 <br><h2> Create your account </h2><br>
 
 <div class="form-container">
     <form name="signup" class="form-location" method="POST" action="/signup" onsubmit="return validateForm()">
         <span>Username:</span>
-        <input type="text" name="username"  minlength="3">
+        <input type="text" id="un" name="username"  minlength="3"> <span id="error"> </span>
         <br><span id="usernameMessage" class="error-message-small"></span><br>
         <span>First Name:</span>
         <input type="text" name="fName">
@@ -18,8 +23,9 @@
         <input type="password" name="password" minlength="3">
         <br><br>
 
-        <button id="signUpButton"> Sign up </button>
+        <button disabled id="signUpButton"> Sign up </button>
     </form><br>
 </div>
+<script th:src="@{/signUp.js}">    </script>
 </body>
 </html>
