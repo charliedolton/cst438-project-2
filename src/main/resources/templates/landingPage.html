@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html xmlns:th="http://thymleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/CSS/css.css">
+    <link th:href = "@{/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+
+<h1>Welcome to the Wishlist App!</h1>
+
+<div id="logo">
+    <h3>Wishlist App Logo and maybe some text</h3>
+</div>
+
+<div id="loginButton">
+    <button th:onclick="|window.location.href='/login'|">Login</button>
+</div>
+<div id="signUpButton">
+    <button th:onclick="|window.location.href='/signup'|">Sign Up</button>
+</div>
+
+</body>
+</html>
