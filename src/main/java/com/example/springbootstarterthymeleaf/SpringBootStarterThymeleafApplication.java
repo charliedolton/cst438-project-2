@@ -18,6 +18,12 @@ public class SpringBootStarterThymeleafApplication {
 	private UserRepository userRepository;
 
 
+	@RequestMapping("/")
+	public String landingPage() {
+		return "landingPage";
+	}
+
+
 	@RequestMapping("/signup")
 	public String signup() {
 		return "signup";
