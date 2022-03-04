@@ -29,14 +29,14 @@ public class SpringBootStarterThymeleafApplication {
 										@RequestParam String lName,
 										@RequestParam String password) {// parameters that this post method expect
 
-		User user = new User(username,fName,lName,null,password);
-		//userRepository.save(user);
+		User user = new User(username,fName,lName,"",password);
+		userRepository.save(user);
 		return "login";
-
 	}
 
 	@RequestMapping("/login")
 	public String login() {
+
 		return "login";
 	}
 
