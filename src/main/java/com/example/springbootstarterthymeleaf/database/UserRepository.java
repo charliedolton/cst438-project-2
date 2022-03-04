@@ -21,4 +21,8 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     User findByUserId(
             @Param("userId") Integer userId
     );
+
+
+    
+
 }

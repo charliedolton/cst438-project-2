@@ -9,6 +9,8 @@ import java.util.Objects;
 
 @Entity
 public class User {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer userId;
@@ -23,6 +25,17 @@ public class User {
 
     private String password;
 
+    public User() {
+
+    }
+    public User(String username, String firstName, String lastName, String pictureURL, String password) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.pictureURL = pictureURL;
+        this.password = password;
+    }
+
 //    @Override
 //    public boolean equals(Object o) {
 //        if (this == o) return true;
@@ -30,6 +43,7 @@ public class User {
 //        User user = (User) o;
 //        return userId.equals(user.userId);
 //    }
+
 
     @Override
     public int hashCode() {
@@ -54,6 +68,18 @@ public class User {
 
     public String getFirstName() {
         return firstName;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", pictureURL='" + pictureURL + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 
     public void setFirstName(String firstName) {
