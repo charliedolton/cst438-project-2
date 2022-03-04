@@ -1,0 +1,16 @@
+#logo {
+    float: left;
+    position: relative;
+    display: flex;
+}
+#loginButton {
+    float: right;
+    position: relative;
+    display: flex;
+}
+#signUpButton {
+    float: right;
+    position: relative;
+    display: flex;
+}
+
