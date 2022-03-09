@@ -30,19 +30,24 @@ public class SpringBootStarterThymeleafApplication {
 	}
 
 	@PostMapping("/signup") // post method for signUp
-	public @ResponseBody String addUser(@RequestParam String username,
+	public String addUser(@RequestParam String username,
 										@RequestParam String fName,
 										@RequestParam String lName,
 										@RequestParam String password) {// parameters that this post method expect
 
-		User user = new User(username,fName,lName,null,password);
-		//userRepository.save(user);
-		return "login";
+		User user = new User(username,fName,lName,"",password);
 
+		if(userRepository.findByUsername(username) == null){
+			userRepository.save(user);
+			return "redirect:/login";
+		}
+
+		return "redirect:/signup";
 	}
 
 	@RequestMapping("/login")
 	public String login() {
+
 		return "login";
 	}
 
@@ -86,6 +91,8 @@ public class SpringBootStarterThymeleafApplication {
 		}
 		return returnVal;
 	}
+
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootStarterThymeleafApplication.class, args);
