@@ -51,34 +51,22 @@ public class SpringBootStarterThymeleafApplication {
 		return "login";
 	}
 
-	// example of post method being used for logging in
 	@PostMapping("/login")
-	public @ResponseBody String attemptLogin(@ModelAttribute("user") User user) {
+	public String attemptLogin(@ModelAttribute("user") User user) {
 		User user1 = userRepository.findByUsername(user.getUsername());
 		if (user1 == null) {
-			return "User does not exist";
+			// Redirect to login page with an error message
+			return "login";
 		}
 
 		if(user1.getPassword().equals(user.getPassword())) {
-			return "Password is valid";
+			return "navigation";
 		} else {
-			return "Password is incorrect";
+			// redirect to login with error message
+			return "login";
 		}
 	}
 
-	// example of post method
-	@PostMapping("/postbody")
-	public @ResponseBody String postBody(@RequestBody String fullName) {
-		return "Hello " + fullName;
-	}
-
-	// example of accessing the database
-	// returns all users in the database
-	@GetMapping(path="/all")
-	public @ResponseBody Iterable<User> getAllUsers() {
-		// This returns a JSON or XML with the users
-		return userRepository.findAll();
-	}
 	@GetMapping(path="api/userIsTaken")
 	public @ResponseBody boolean checkForUser(String username) {//checks for user by username
 		User user1 = userRepository.findByUsername(username);
@@ -92,15 +80,8 @@ public class SpringBootStarterThymeleafApplication {
 		return returnVal;
 	}
 
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootStarterThymeleafApplication.class, args);
 	}
 
-	@RequestMapping("/hello")
-	@ResponseBody
-	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return String.format("Hello %s!", name);
-	}
 }
