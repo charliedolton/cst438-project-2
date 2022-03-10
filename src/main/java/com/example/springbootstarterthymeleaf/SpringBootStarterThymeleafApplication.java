@@ -7,7 +7,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -48,11 +47,11 @@ public class SpringBootStarterThymeleafApplication {
 
 		return "login";
 	}
-	@RequestMapping("/landingPage" )
+	@RequestMapping("/homePage")
 	public  String landingPage(HttpSession session) {
 		//clearSessionVariables(session);
 		if(isAuthenticated(session)){
-			return "/LandingPage";
+			return "HomePage";
 		}
 		else{
 			return "redirect:/login";
@@ -61,18 +60,18 @@ public class SpringBootStarterThymeleafApplication {
 
 	// example of post method being used for logging in
 	@PostMapping("/login")
-	public String attemptLogin(@ModelAttribute("user") User user, HttpServletRequest session) {
+	public String attemptLogin(@ModelAttribute("user") User user, HttpServletRequest sessionLink) {
 		User user1 = userRepository.findByUsername(user.getUsername());
-		List<String> sessionVar = new ArrayList<>();
+		List<String> sessionVar = new ArrayList<>();// this holds the session variables
 		if (user1 == null) {
 			return "User does not exist";
 		}
 
 		if(user1.getPassword().equals(user.getPassword())) {
-			sessionVar.add(user.getUsername());
-			sessionVar.add("isAuthenticated");
-			session.getSession().setAttribute("sessionVar", sessionVar);
-			return "redirect:/landingPage";
+			sessionVar.add(user.getUsername()); // we add a variable
+			sessionVar.add("isAuthenticated"); // we add another variable
+			sessionLink.getSession().setAttribute("sessionVar", sessionVar);// we save the list to the session link
+			return "redirect:/homePage";
 		} else {
 			return "Password is incorrect";
 		}

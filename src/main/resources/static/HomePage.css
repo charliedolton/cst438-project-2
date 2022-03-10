@@ -1,0 +1,13 @@
+h1{
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+}
+#h1{
+    padding-left: 33%;
+}
+
+#img{
+    padding-left: 40%;
+    padding-bottom: 1%;
+}
