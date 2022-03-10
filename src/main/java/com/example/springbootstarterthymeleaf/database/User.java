@@ -1,10 +1,8 @@
 package com.example.springbootstarterthymeleaf.database;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.util.ArrayList;
 import java.util.Objects;
 
 @Entity
@@ -24,6 +22,9 @@ public class User {
     private String pictureURL;
 
     private String password;
+
+    @OneToMany
+    private ArrayList<WishList> wishlists;
 
     public User() {
 
