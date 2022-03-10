@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
 <br><h2> Please enter your Username and Password </h2><br>
 
@@ -11,6 +11,7 @@
         <span>Password:</span>
         <input type="password" name="password" minlength="1">
         <br><br>
+        <span th:text="${error}"></span><br>
         <button id="loginButton"> Log in </button>
     </form><br>
 </div>

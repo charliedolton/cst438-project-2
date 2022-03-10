@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -46,25 +47,28 @@ public class SpringBootStarterThymeleafApplication {
 	}
 
 	@RequestMapping("/login")
-	public String login() {
-
+	public String login(Model model) {
 		return "login";
 	}
 
 	@PostMapping("/login")
-	public String attemptLogin(@ModelAttribute("user") User user) {
-		User user1 = userRepository.findByUsername(user.getUsername());
-		if (user1 == null) {
-			// Redirect to login page with an error message
+	public String attemptLogin(@ModelAttribute("user") User user, Model model) {
+		User dbUser = userRepository.findByUsername(user.getUsername());
+
+		// user is not found in database
+		if (dbUser == null) {
+			model.addAttribute("error", "User does not exist!");
 			return "login";
 		}
 
-		if(user1.getPassword().equals(user.getPassword())) {
-			return "navigation";
-		} else {
-			// redirect to login with error message
+		// input password does not match password in database
+		if (!dbUser.getPassword().equals(user.getPassword())) {
+			model.addAttribute("error", "Incorrect password!");
 			return "login";
 		}
+
+		// TODO: allow for user to stay logged in using sessions
+		return "navigation";
 	}
 
 	@GetMapping(path="api/userIsTaken")
