@@ -53,6 +53,11 @@ public class SpringBootStarterThymeleafApplication {
 
 		return "login";
 	}
+	@RequestMapping("/logOut")
+	public String logOut(HttpSession session) {
+		clearSessionVariables(session);
+		return "login";
+	}
 	@RequestMapping("/homePage")
 	public  String landingPage(HttpSession session) {
 		//clearSessionVariables(session);
