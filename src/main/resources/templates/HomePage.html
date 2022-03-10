@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
@@ -14,7 +14,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div >
-
         <select id="menu"  class="btn btn-light">
             <option value="DashBoard">DashBoard</option>
             <option value="LogOut">LogOut</option>
@@ -23,11 +22,13 @@
     <div id="h1">
         <h1>Gift~ish</h1>
     </div>
-
     <div id ="img">
-        <img width="50" height="50" th:src="@{/img/nullProfile.png}">
+        <img id= "profile" width="50" height="50"  th:src="@{/img/nullProfile.png}">
     </div>
 </nav>
-<script th:src="@{/homePage.js}">    </script>
+<span class="h5">Welcome </span> <span class="h5" th:text="${user.getUsername()}"></span>
+<span id= "userInfo" th:object="${user}"></span>
+
+<script th:src="@{/homePage.js}">   </script>
 </body>
 </html>
