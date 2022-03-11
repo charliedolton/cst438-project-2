@@ -14,7 +14,7 @@ public class WishList {
 
     private String listName;
 
-    @OneToMany(mappedBy = "wishlist")
+    @OneToMany
     private ArrayList<Item> items;
 
     private Integer userId;

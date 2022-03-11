@@ -9,11 +9,7 @@ public class Item {
   
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer itemId; 
-
-    @ManyToOne
-    @JoinColumn(name = "wishListId", nullable = false)
-    private WishList wishList;
+    private Integer itemId;
 
     private String amazonURL; 
 
@@ -29,14 +25,6 @@ public class Item {
 
     public void setItemId(Integer itemId) {
         this.itemId = itemId;
-    }
-
-    public WishList getWishList() {
-        return wishList;
-    }
-
-    public void setWishList(WishList wishList) {
-        this.wishList = wishList;
     }
 
     public String getAmazonURL() {

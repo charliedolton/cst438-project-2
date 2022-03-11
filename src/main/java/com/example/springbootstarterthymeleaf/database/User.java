@@ -110,4 +110,12 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public ArrayList<WishList> getWishlists() {
+        return wishlists;
+    }
+
+    public void setWishlists(ArrayList<WishList> wishlists) {
+        this.wishlists = wishlists;
+    }
 }
