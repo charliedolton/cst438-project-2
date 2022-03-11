@@ -4,6 +4,7 @@ package com.example.springbootstarterthymeleaf.database;
 import javax.persistence.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class WishList {
@@ -15,7 +16,7 @@ public class WishList {
     private String listName;
 
     @OneToMany
-    private ArrayList<Item> items;
+    private List<Item> items;
 
     private Integer userId;
 
@@ -35,11 +36,11 @@ public class WishList {
         this.listName = listName;
     }
 
-    public ArrayList<Item> getItems() {
+    public List<Item> getItems() {
         return items;
     }
 
-    public void setItems(ArrayList<Item> items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
 

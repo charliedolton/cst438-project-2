@@ -3,6 +3,7 @@ package com.example.springbootstarterthymeleaf.database;
 import javax.persistence.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -24,7 +25,7 @@ public class User {
     private String password;
 
     @OneToMany
-    private ArrayList<WishList> wishlists;
+    private List<WishList> wishlists;
 
     public User() {
 
@@ -111,11 +112,11 @@ public class User {
         this.password = password;
     }
 
-    public ArrayList<WishList> getWishlists() {
+    public List<WishList> getWishlists() {
         return wishlists;
     }
 
-    public void setWishlists(ArrayList<WishList> wishlists) {
+    public void setWishlists(List<WishList> wishlists) {
         this.wishlists = wishlists;
     }
 }
