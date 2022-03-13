@@ -22,7 +22,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
             @Param("userId") Integer userId
     );
 
-
+    Boolean existsUserByUsername(String username);
     
 
 }

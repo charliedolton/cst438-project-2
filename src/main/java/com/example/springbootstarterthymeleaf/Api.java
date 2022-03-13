@@ -51,4 +51,9 @@ public class Api {
     public @ResponseBody Item getItemByItemId(@RequestParam(defaultValue = "0") Integer itemId){
         return itemRepository.findItemByItemId(itemId);
     }
+
+    @RequestMapping("/usernameIsTaken")
+    public @ResponseBody Boolean usernameIsTaken(@RequestParam(defaultValue = "user") String username) {
+        return userRepository.existsUserByUsername(username);
+    }
 }
