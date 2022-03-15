@@ -4,9 +4,12 @@ package com.example.springbootstarterthymeleaf;
 import com.example.springbootstarterthymeleaf.database.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/api")
@@ -55,5 +58,21 @@ public class Api {
     @RequestMapping("/usernameIsTaken")
     public @ResponseBody Boolean usernameIsTaken(@RequestParam(defaultValue = "user") String username) {
         return userRepository.existsUserByUsername(username);
+    }
+
+    @PostMapping("/addItemToWishlist")
+    public @ResponseBody String addItemToWishlist(@RequestParam Integer wishlistId,
+                                    @RequestParam String itemName,
+                                    @RequestParam Integer itemPrice,
+                                    @RequestParam String amazonURL,
+                                    @RequestParam String imageURL) {
+        WishList wishList = wishlistRepository.findWishListByWishListId(wishlistId);
+        Item item = new Item(amazonURL, itemName, itemPrice, imageURL);
+        itemRepository.save(item);
+        List<Item> itemList = wishList.getItems();
+        itemList.add(item);
+        wishList.setItems(itemList);
+
+        return "redirect:/addItemToWishlist";
     }
 }

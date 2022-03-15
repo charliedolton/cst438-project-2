@@ -19,6 +19,13 @@ public class Item {
     
     private String itemPictureURL;
 
+    public Item(String amazonURL, String itemName, Integer itemPrice, String itemPictureURL) {
+        this.amazonURL = amazonURL;
+        this.itemName = itemName;
+        this.itemPrice = itemPrice;
+        this.itemPictureURL = itemPictureURL;
+    }
+
     public Integer getItemId() {
         return itemId;
     }

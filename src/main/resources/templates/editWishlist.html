@@ -22,6 +22,9 @@
     <tr>
         <td><span th:text="${wishlist.listName}"> List Name </span></td>
     </tr>
+    <tr th:if="${!itemList}">
+        <td> Item List Unavailable </td>
+    </tr>
     <tr th:each="item : ${itemList}">
         <td th:text="${item.itemName}"> Item Name </td>
         <td th:text="${item.itemPrice}"> Item Price </td>

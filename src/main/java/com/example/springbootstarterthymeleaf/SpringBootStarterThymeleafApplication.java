@@ -101,10 +101,18 @@ public class SpringBootStarterThymeleafApplication {
 	@RequestMapping("/editWishlist")
 	public String editWishlist(@RequestParam(defaultValue = "0") Integer wishlistId, Model model){
 		WishList wishlist = wishlistRepository.findWishListByWishListId(wishlistId);
-		List<Item> itemList = wishlistRepository.getItemList(wishlistId);
+		List<Item> itemList = wishlist.getItems();
 		model.addAttribute("wishlist", wishlist);
 		model.addAttribute("itemList", itemList);
 		return "editWishlist";
+	}
+
+	//page for adding items to a wishlist
+	@RequestMapping("/addItemToWishlist")
+	public String addItemToWishlist(@RequestParam Integer wishlistId, Model model){
+		WishList wishList = wishlistRepository.findWishListByWishListId(wishlistId);
+		model.addAttribute("wishlist", wishList);
+		return "addItemToWishlist";
 	}
 
 
