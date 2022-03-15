@@ -57,6 +57,12 @@ public class SpringBootStarterThymeleafApplication {
 		return "login";
 	}
 
+	//home screen route
+	@RequestMapping("/home")
+	public String home() {
+		return "home";
+	}
+
 	// example of post method being used for logging in
 	@PostMapping("/login")
 	public @ResponseBody String attemptLogin(@ModelAttribute("user") User user) {
@@ -101,9 +107,7 @@ public class SpringBootStarterThymeleafApplication {
 	@RequestMapping("/editWishlist")
 	public String editWishlist(@RequestParam(defaultValue = "0") Integer wishlistId, Model model){
 		WishList wishlist = wishlistRepository.findWishListByWishListId(wishlistId);
-		List<Item> itemList = wishlist.getItems();
 		model.addAttribute("wishlist", wishlist);
-		model.addAttribute("itemList", itemList);
 		return "editWishlist";
 	}
 

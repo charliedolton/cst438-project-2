@@ -22,10 +22,10 @@
     <tr>
         <td><span th:text="${wishlist.listName}"> List Name </span></td>
     </tr>
-    <tr th:if="${!itemList}">
+    <!--<tr th:if="${!wishlist.items}">
         <td> Item List Unavailable </td>
-    </tr>
-    <tr th:each="item : ${itemList}">
+    </tr> -->
+    <tr th:each="item : ${wishlist.items}">
         <td th:text="${item.itemName}"> Item Name </td>
         <td th:text="${item.itemPrice}"> Item Price </td>
         <td th:text="${item.amazonURL}"> Item URL </td>

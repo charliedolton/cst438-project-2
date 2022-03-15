@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>Navigation Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/CSS/css.css">
+    <link th:href = "@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<br><h2> Welcome! Here are your wishlists! </h2><br>
+<div class="ProfilePic">
+
+    <span> ${user.username} </span> <!-- placeholder -->
+    <br>
+    <img src = "https://styles.redditmedia.com/t5_13nvu8/styles/profileIcon_2a1o76rb0sg61.jpg?width=256&height=256&crop=256:256,smart&s=1ab20a80166635ae41dc7cdaaf4b08e4c4ab5971" alt ="N/A" style = "width:150px; height:200px">
+
+</div>
+
+<div class="logoutButton">
+    <br>
+    <button>edit account </button>
+    <br>
+    <button>logout </button>
+</div>
+
+<br>
+<br>
+
+<div class="wishlists">
+    <table>
+        <tr th:each="wishlist : wishlists">
+            <td th:text="${wishlist.listName}">List Name</td>
+            <td th:text="${wishlist.getListSize()} + Items in List">List Size</td>
+        </tr>
+    </table>
+</div>
+
+
+
+</body>
+</html>
