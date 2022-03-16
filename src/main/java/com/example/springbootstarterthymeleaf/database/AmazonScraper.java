@@ -7,6 +7,11 @@ import org.jsoup.nodes.Element;
 import java.io.IOException;
 
 public class AmazonScraper {
+    /**
+     * @param AmazonURL a valid Amazon URL
+     * @return An image URL.
+     *      Returns null if an error is encountered
+     */
     public static String getImageURL(String AmazonURL) {
         Document page;
         try {
@@ -20,6 +25,11 @@ public class AmazonScraper {
         return URL;
     }
 
+    /**
+     * @param AmazonURL a valid Amazon URL
+     * @return An Item created by scraping an Amazon web page.
+     *      Returns null if an error is encountered
+     */
     public static Item makeItem(String AmazonURL) {
         Document page;
         try {
