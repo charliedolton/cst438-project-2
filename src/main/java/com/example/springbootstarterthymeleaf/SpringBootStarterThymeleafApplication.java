@@ -43,7 +43,7 @@ public class SpringBootStarterThymeleafApplication {
 
 		User user = new User(username,fName,lName,"",password);
 
-		if(userRepository.findByUsername(username) == null){
+		if(userRepository.findUserByUsername(username) == null){
 			userRepository.save(user);
 			return "redirect:/login";
 		}
@@ -59,14 +59,16 @@ public class SpringBootStarterThymeleafApplication {
 
 	//home screen route
 	@RequestMapping("/home")
-	public String home() {
+	public String home(@RequestParam Integer userId, Model model) {
+		User user = userRepository.findUserByUserId(userId);
+		model.addAttribute("user", user);
 		return "home";
 	}
 
 	// example of post method being used for logging in
 	@PostMapping("/login")
 	public @ResponseBody String attemptLogin(@ModelAttribute("user") User user) {
-		User user1 = userRepository.findByUsername(user.getUsername());
+		User user1 = userRepository.findUserByUsername(user.getUsername());
 		if (user1 == null) {
 			return "User does not exist";
 		}

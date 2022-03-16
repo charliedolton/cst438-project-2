@@ -14,19 +14,19 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:if="${!wishlist}">
+        <tr th:if="${wishlist == null}">
             <td> Wishlist Unavailable </td>
         </tr>
         <tr>
             <td><span th:text="${wishlist.listName}"> List Name </span></td>
         </tr>
         <tr>
-            <td> <input id="wishlistId" type="hidden" th:value="${wishlist.wishListId}"></td>
-            <td> <input id="itemName" type="text" placeholder="Item Name"></td>
-            <td> <input id="itemPrice" type="text" placeholder="Item Price"></td>
-            <td> <input id="amazonURL" type="text" placeholder="Amazon URL"></td>
-            <td> <input id="pictureURL" type="text" placeholder="Image URL"></td>
-            <td> <input id="submit" type="submit"></td>
+            <td> <input name="wishlistId" type="hidden" th:value="${wishlist.wishListId}"></td>
+            <td> <input name="itemName" type="text" placeholder="Item Name"></td>
+            <td> <input name="itemPrice" type="text" placeholder="Item Price"></td>
+            <td> <input name="amazonURL" type="text" placeholder="Amazon URL"></td>
+            <td> <input name="imageURL" type="text" placeholder="Image URL"></td>
+            <td> <input name="submit" type="submit"></td>
         </tr>
         </tbody>
     </table>

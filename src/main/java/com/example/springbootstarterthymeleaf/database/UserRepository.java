@@ -8,19 +8,9 @@ import java.util.List;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
 
-    @Query(value = "SELECT * FROM User u WHERE u.username = :username",
-    countQuery = "SELECT count(*) FROM User",
-    nativeQuery = true)
-    User findByUsername(
-        @Param("username") String username
-    );
+    User findUserByUsername(String username);
 
-    @Query(value = "SELECT * FROM User u WHERE u.userId = :userId",
-    countQuery = "SELECT count(*) FROM User",
-    nativeQuery = true)
-    User findByUserId(
-            @Param("userId") Integer userId
-    );
+    User findUserByUserId(Integer userId);
 
     Boolean existsUserByUsername(String username);
     

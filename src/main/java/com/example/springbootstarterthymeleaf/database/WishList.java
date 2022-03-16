@@ -51,4 +51,8 @@ public class WishList {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
+
+    public Integer getListSize() {
+        return this.items.size();
+    }
 }

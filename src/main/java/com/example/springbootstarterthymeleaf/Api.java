@@ -30,12 +30,12 @@ public class Api {
 
     @RequestMapping("/getUserByUsername")
     public @ResponseBody User getUserByUsername(@RequestParam(defaultValue = "user") String name) {
-        return userRepository.findByUsername(name);
+        return userRepository.findUserByUsername(name);
     }
 
     @RequestMapping("/getUserByUserId")
     public @ResponseBody User getUserByUserId(@RequestParam(defaultValue = "0") Integer userId){
-        return userRepository.findByUserId(userId);
+        return userRepository.findUserByUserId(userId);
     }
 
     //Wishlist API endpoints

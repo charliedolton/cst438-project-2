@@ -11,7 +11,7 @@
 <br><h2> Welcome! Here are your wishlists! </h2><br>
 <div class="ProfilePic">
 
-    <span> ${user.username} </span> <!-- placeholder -->
+    <span th:text="${user.username}"> </span> <!-- placeholder -->
     <br>
     <img src = "https://styles.redditmedia.com/t5_13nvu8/styles/profileIcon_2a1o76rb0sg61.jpg?width=256&height=256&crop=256:256,smart&s=1ab20a80166635ae41dc7cdaaf4b08e4c4ab5971" alt ="N/A" style = "width:150px; height:200px">
 
@@ -29,7 +29,7 @@
 
 <div class="wishlists">
     <table>
-        <tr th:each="wishlist : wishlists">
+        <tr th:each="wishlist : ${user.wishlists}">
             <td th:text="${wishlist.listName}">List Name</td>
             <td th:text="${wishlist.getListSize()} + Items in List">List Size</td>
         </tr>
