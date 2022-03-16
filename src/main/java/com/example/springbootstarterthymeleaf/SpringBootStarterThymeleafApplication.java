@@ -29,6 +29,11 @@ public class SpringBootStarterThymeleafApplication {
 		return "signup";
 	}
 
+	@RequestMapping("/about")
+	public String about() {
+		return "about";
+	}
+
 	@PostMapping("/signup") // post method for signUp
 	public String addUser(@RequestParam String username,
 										@RequestParam String fName,
