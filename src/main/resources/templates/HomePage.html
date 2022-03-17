@@ -22,8 +22,9 @@
     <div id="h1">
         <h1>Gift~ish</h1>
     </div>
-    <div id ="img">
-        <img id= "profile" width="50" height="50"  th:src="@{${user.getPictureURL()}}">
+    <div id ="img" th:switch="${user.getPictureURL().length()}">
+        <p th:case="0"> <img   width="50" height="50"  th:src="@{/img/nullProfile.png}"></p>
+        <p th:case="*" ><img id= "profile" width="66" height="66"  th:src="${user.getPictureURL()}"></p>
     </div>
 </nav>
 <span class="h5">Welcome </span> <span class="h5" th:text="${user.getUsername()}"></span>

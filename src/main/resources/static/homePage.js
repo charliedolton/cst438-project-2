@@ -10,7 +10,3 @@ async function fetchData(url) {
     let data = await response.json();
     return data;
 }
-//<div id ="img" th:switch="${user.getPictureURL().length()}">
-//         <p th:case="${0}"  th:src="@{/img/nullProfile.png}"></p>
-//         <p th:case="*" th:src="@{/img/nullProfile.png}"></p>
-//     </div>
