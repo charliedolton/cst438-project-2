@@ -12,6 +12,8 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     User findUserByUserId(Integer userId);
 
+    User findUserByWishlistsContains(Integer wishlistId);
+
     Boolean existsUserByUsername(String username);
     
 

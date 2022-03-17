@@ -177,6 +177,13 @@ public class SpringBootStarterThymeleafApplication {
 		return "addItemToWishlist";
 	}
 
+	@RequestMapping("/viewWishlist")
+	public String viewWishlist(@RequestParam Integer wishlistId, Model model) {
+		WishList wishlist = wishlistRepository.findWishListByWishListId(wishlistId);
+		model.addAttribute("wishlist", wishlist);
+		return "wishList";
+	}
+
 
 
 
