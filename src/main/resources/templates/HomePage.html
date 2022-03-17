@@ -22,7 +22,6 @@
     <div id="h1">
         <h1>Gift~ish</h1>
     </div>
-
     <div id ="img" th:switch="${user.getPictureURL().length()}">
         <p th:case="''"> <img   width="50" height="50"  th:src="@{/img/nullProfile.png}"></p>
         <p th:case="*" ><img id= "profile" width="66" height="66"  th:src="${user.getPictureURL()}"></p>
@@ -30,6 +29,21 @@
 </nav>
 <span class="h5">Welcome </span> <span class="h5" th:text="${user.getUsername()}"></span>
 <span id= "userInfo" th:object="${user}"></span>
+
+<div class="wishlists">
+    <table>
+        <tr th:each="wishlist : ${user.wishlists}">
+            <td th:text="${wishlist.listName}">List Name</td>
+            <td th:text="${wishlist.getListSize()} + ' Items in List'">List Size </td>
+            <td><a th:href="'editWishlist?wishlistId='+ ${wishlist.wishListId}">Edit Wishlist</a> </td>
+            <td><a th:href="'addItemToWishlist?wishlistId='+ ${wishlist.wishListId}">Add Item To Wishlist</a> </td>
+        </tr>
+    </table>
+</div>
+
+<div class="createWishlistButton">
+    <button th:onclick="|window.location.href='/createWishlist'|">Create New Wishlist</button>
+</div>
 
 <script th:src="@{/homePage.js}">   </script>
 </body>
