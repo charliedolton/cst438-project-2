@@ -162,10 +162,19 @@ public class SpringBootStarterThymeleafApplication {
 //		return returnVal;
 //	}
 	//page for editing wishlists
-	@RequestMapping("/editWishlist")
-	public String editWishlist(@RequestParam(defaultValue = "0") Integer wishlistId, Model model){
+	@RequestMapping("/editWishlist") // changed to view wishlist
+	public String editWishlist(@RequestParam(defaultValue = "0") Integer wishlistId,
+							   Model model, HttpSession session){
 		WishList wishlist = wishlistRepository.findWishListByWishListId(wishlistId);
 		model.addAttribute("wishlist", wishlist);
+
+		if(isAuthenticated(session)){
+			model.addAttribute("isAuthenticated", true);
+		}
+		else{
+			model.addAttribute("isAuthenticated", false);
+		}
+
 		return "editWishlist";
 	}
 
