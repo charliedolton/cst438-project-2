@@ -37,7 +37,11 @@
             <td><a th:href="'editWishlist?wishlistId='+ ${wishlist.wishListId}"> Edit Wishlist </a> </td>
             <td><a th:href="'addItemToWishlist?wishlistId='+ ${wishlist.wishListId}"> Add Item To Wishlist </a> </td>
             <td><a th:href="'viewWishlist?wishlistId='+ ${wishlist.wishListId}"> View Wishlist </a> </td>
-            <td><a th:href="'/api/deleteWishlist?wishlistId='+ ${wishlist.wishListId}"> Delete This Wishlist </a> </td>
+            <td><form action="/api/deleteWishlist" method="post">
+                <input name="wishlistId" type="hidden" th:value="${wishlist.wishListId}">
+                <input name="userId" type="hidden" th:value="${user.userId}">
+                <input name="submit" type="submit" value="Delete Wishlist">
+            </form> </td>
         </tr>
     </table>
 </div>

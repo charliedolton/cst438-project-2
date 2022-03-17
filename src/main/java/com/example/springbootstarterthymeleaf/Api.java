@@ -87,13 +87,15 @@ public class Api {
         itemRepository.delete(item);
         wishList.setItems(itemList);
 
-        return "redirect:/editWishlist";
+        String url = "redirect:/editWishlist?wishlistId=" + wishList.getWishListId();
+        return url;
     }
 
     @PostMapping("/deleteWishlist")
-    public String deleteWishlist(@RequestParam Integer wishlistId) {
+    public String deleteWishlist(@RequestParam Integer wishlistId,
+                                 @RequestParam Integer userId) {
         WishList wishList = wishlistRepository.findWishListByWishListId(wishlistId);
-        User user = userRepository.findUserByWishlistsContains(wishlistId);
+        User user = userRepository.findUserByUserId(userId);
         List<WishList> wishlists = user.getWishlists();
         wishlists.remove(wishList);
         user.setWishlists(wishlists);
