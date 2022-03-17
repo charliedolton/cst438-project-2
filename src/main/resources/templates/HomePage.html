@@ -32,10 +32,12 @@
 <div class="wishlists">
     <table>
         <tr th:each="wishlist : ${user.wishlists}">
-            <td th:text="${wishlist.listName}">List Name</td>
-            <td th:text="${wishlist.getListSize()} + ' Items in List'">List Size </td>
-            <td><a th:href="'editWishlist?wishlistId='+ ${wishlist.wishListId}">Edit Wishlist</a> </td>
-            <td><a th:href="'addItemToWishlist?wishlistId='+ ${wishlist.wishListId}">Add Item To Wishlist</a> </td>
+            <td th:text="${wishlist.listName}"> List Name </td>
+            <td th:text="${wishlist.getListSize()} + ' Items in List'"> List Size </td>
+            <td><a th:href="'editWishlist?wishlistId='+ ${wishlist.wishListId}"> Edit Wishlist </a> </td>
+            <td><a th:href="'addItemToWishlist?wishlistId='+ ${wishlist.wishListId}"> Add Item To Wishlist </a> </td>
+            <td><a th:href="'viewWishlist?wishlistId='+ ${wishlist.wishListId}"> View Wishlist </a> </td>
+            <td><a th:href="'/api/deleteWishlist?wishlistId='+ ${wishlist.wishListId}"> Delete This Wishlist </a> </td>
         </tr>
     </table>
 </div>

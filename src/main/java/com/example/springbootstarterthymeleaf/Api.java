@@ -90,6 +90,18 @@ public class Api {
         return "redirect:/editWishlist";
     }
 
+    @PostMapping("/deleteWishlist")
+    public String deleteWishlist(@RequestParam Integer wishlistId) {
+        WishList wishList = wishlistRepository.findWishListByWishListId(wishlistId);
+        User user = userRepository.findUserByWishlistsContains(wishlistId);
+        List<WishList> wishlists = user.getWishlists();
+        wishlists.remove(wishList);
+        user.setWishlists(wishlists);
+        wishlistRepository.delete(wishList);
+
+        return "redirect:/homePage";
+    }
+
     @PostMapping("/createWishlist")
     public String createWishlist(@RequestParam String wishlistName,
                                  @RequestParam Integer userId) {
