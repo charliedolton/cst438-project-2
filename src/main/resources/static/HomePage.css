@@ -6,13 +6,12 @@ h1{
 #h1{
     padding-left: 33%;
 }
-
-#img{
-    padding-left: 40%;
-    padding-bottom: 1%;
-}
 #profile{
     border-style: solid;
     background-color: dimgrey;
     border-radius: 50%;
+}
+#img{
+    padding-left: 40%;
+    padding-bottom: 1%;
 }

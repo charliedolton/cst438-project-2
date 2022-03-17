@@ -10,7 +10,3 @@ async function fetchData(url) {
     let data = await response.json();
     return data;
 }
-/*<div id ="img">
-    <img id= "profile" width="50" height="50"  th:src="@{/img/nullProfile.png}">
-
-</div>*/
