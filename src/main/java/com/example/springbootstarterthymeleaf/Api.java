@@ -61,7 +61,7 @@ public class Api {
     }
 
     @PostMapping("/addItemToWishlist")
-    public @ResponseBody String addItemToWishlist(@RequestParam Integer wishlistId,
+    public String addItemToWishlist(@RequestParam Integer wishlistId,
                                     @RequestParam String itemName,
                                     @RequestParam Integer itemPrice,
                                     @RequestParam String amazonURL,
@@ -73,6 +73,33 @@ public class Api {
         itemList.add(item);
         wishList.setItems(itemList);
 
-        return "redirect:/addItemToWishlist";
+        String url = "redirect:/addItemToWishlist?wishlistId=" + wishlistId;
+        return url;
+    }
+
+    @PostMapping("/deleteItem")
+    public String deleteItem(@RequestParam Integer wishlistId,
+                             @RequestParam Integer itemId) {
+        WishList wishList = wishlistRepository.findWishListByWishListId(wishlistId);
+        List<Item> itemList = wishList.getItems();
+        Item item = itemRepository.findItemByItemId(itemId);
+        itemList.remove(item);
+        itemRepository.delete(item);
+        wishList.setItems(itemList);
+
+        return "redirect:/editWishlist";
+    }
+
+    @PostMapping("/createWishlist")
+    public String createWishlist(@RequestParam String wishlistName,
+                                 @RequestParam Integer userId) {
+        User user = userRepository.findUserByUserId(userId);
+        WishList wishlist = new WishList(wishlistName, userId);
+        wishlistRepository.save(wishlist);
+        List<WishList> wishlists = user.getWishlists();
+        wishlists.add(wishlist);
+        user.setWishlists(wishlists);
+
+        return "redirect:/homePage";
     }
 }

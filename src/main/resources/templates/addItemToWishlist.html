@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Add an Item to Your Wishlist</title>
@@ -26,11 +26,15 @@
             <td> <input name="itemPrice" type="text" placeholder="Item Price"></td>
             <td> <input name="amazonURL" type="text" placeholder="Amazon URL"></td>
             <td> <input name="imageURL" type="text" placeholder="Image URL"></td>
-            <td> <input name="submit" type="submit"></td>
+            <td> <input name="submit" type="submit" value="Add Item"></td>
         </tr>
         </tbody>
     </table>
 </form>
+
+<br>
+
+<a href="/homePage">Go Back to Homepage</a>
 
 </body>
 </html>

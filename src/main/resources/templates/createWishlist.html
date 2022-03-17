@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+    <form action="/api/createWishlist" method="post">
+        <input type="text" name="wishlistName" placeholder="Wishlist Name">
+        <input type="hidden" name="userId" th:value="${user.userId}">
+        <input type="submit" text="Create WishList!">
+    </form>
 </body>
 </html>

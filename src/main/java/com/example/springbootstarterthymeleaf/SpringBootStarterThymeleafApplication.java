@@ -99,6 +99,20 @@ public class SpringBootStarterThymeleafApplication {
 		return "home";
 	}
 
+	//route for creating wishlists
+	@RequestMapping("/createWishlist")
+	public String createWishlist(Model model, HttpSession session) {
+		User user = null;
+
+		if(isAuthenticated(session)){
+			user = userRepository.findUserByUsername(((List<String>)session.getAttribute("sessionVar")).get(0));
+			model.addAttribute("user", user);
+			return "createWishlist";
+		} else {
+			return "login";
+		}
+	}
+
 	// example of post method being used for logging in
 	@PostMapping("/login")
 	public String attemptLogin(@ModelAttribute("user") User user, HttpServletRequest sessionLink) {

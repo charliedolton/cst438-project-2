@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Edit Wishlist</title>
@@ -26,9 +26,14 @@
         <td> Item List Unavailable </td>
     </tr>
     <tr th:each="item : ${wishlist.items}">
-        <td th:text="${item.itemName}"> Item Name </td>
-        <td th:text="${item.itemPrice}"> Item Price </td>
-        <td th:text="${item.amazonURL}"> Item URL </td>
+        <form action="/api/deleteItem" method="post">
+            <td th:text="${item.itemName}"> Item Name </td>
+            <td th:text="${item.itemPrice}"> Item Price </td>
+            <td th:text="${item.amazonURL}"> Item URL </td>
+            <input type="hidden" name="itemId" th:value="${item.itemId}">
+            <input type="hidden" name="wishlistId" th:value="${wishlist.wishListId}">
+            <td><input type="submit" value="Delete Item"></td>
+        </form>
     </tr>
     </tbody>
 </table>

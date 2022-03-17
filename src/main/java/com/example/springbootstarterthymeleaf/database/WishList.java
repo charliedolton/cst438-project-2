@@ -20,6 +20,15 @@ public class WishList {
 
     private Integer userId;
 
+    public WishList() {
+
+    }
+
+    public WishList(String listName, Integer userId) {
+        this.listName = listName;
+        this.userId = userId;
+    }
+
     public Integer getWishListId() {
         return wishListId;
     }
