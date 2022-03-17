@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head>
+    <title>Signup for Gift~ish</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link th:href="@{/main.css}" rel="stylesheet"/>
+    <link th:href="@{assets/css/signup.css}" rel="stylesheet"/>
 
 </head>
 <body>
 <br><h2> Create your account </h2><br>
 
+
 <div class="form-container">
     <form name="signup" class="form-location" method="POST" action="/signup" >
-        <span>Username:</span>
-        <input type="text" id="un" name="username"  minlength="3"> <span id="error"> </span>
-        <br><span id="usernameMessage" class="error-message-small"></span><br>
-        <span>First Name:</span>
-        <input type="text" name="fName">
-        <br><br>
-        <span>Last Name:</span>
-        <input type="text" name="lName">
-        <br><br>
-        <span>Password:</span>
-        <input type="password" name="password" minlength="3">
-        <br><br>
 
-        <button disabled id="signUpButton"> Sign up </button>
+        <input type="text" id="un" name="username" placeholder="username" minlength="3"> <span id="error"> </span>
+        <br>
+        <span id="usernameMessage" class="error-message-small"></span>
+        <br>
+
+        <input type="text" name="fName" placeholder="First Name">
+        <br>
+        <br>
+
+        <input type="text" name="lName" placeholder="Last Name">
+        <br>
+        <br>
+
+        <input type="password" name="password" minlength="3" placeholder="password">
+        <br>
+        <br>
+
+        <button disabled id="signUpButton" type="submit" class="btn btn-primary btn-block btn-large"> Sign up </button>
+        
     </form><br>
 </div>
-<script th:src="@{/signUp.js}">    </script>
+<script th:src="@{assets/js/signUp.js}">    </script>
 </body>
 </html>

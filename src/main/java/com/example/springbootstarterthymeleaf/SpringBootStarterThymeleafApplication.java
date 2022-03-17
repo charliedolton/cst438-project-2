@@ -35,10 +35,14 @@ public class SpringBootStarterThymeleafApplication {
 		return "landingPage";
 	}
 
-
 	@RequestMapping("/signup")
 	public String signup() {
 		return "signup";
+	}
+
+	@RequestMapping("/about")
+	public String about() {
+		return "about";
 	}
 
 	@PostMapping("/signup") // post method for signUp
