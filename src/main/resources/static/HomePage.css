@@ -11,3 +11,8 @@ h1{
     padding-left: 40%;
     padding-bottom: 1%;
 }
+#profile{
+    border-style: solid;
+    background-color: dimgrey;
+    border-radius: 50%;
+}
