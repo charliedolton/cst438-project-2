@@ -23,7 +23,6 @@ public class SpringBootStarterThymeleafApplication {
 		return "landingPage";
 	}
 
-
 	@RequestMapping("/signup")
 	public String signup() {
 		return "signup";
