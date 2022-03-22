@@ -6,6 +6,17 @@
 </head>
 <body>
 
+<br>
+<span>Create an item automatically with an Amazon link</span>
+<form action="/api/addAmazonItemToWishlist" method="post">
+    <input name="wishlistId" type="hidden" th:value="${wishlist.wishListId}">
+    <input type="url" name="amazonURL" id="url" placeholder="Amazon URL" pattern="*amazon.com/*/*" size="40" required>
+<!--    <input name="amazonURL" type="text" placeholder="Amazon URL" required>-->
+    <input name="submit" type="submit" value="Add Item">
+</form>
+<br><hr>
+Or manually:
+
 <form action="/api/addItemToWishlist" method="post">
     <table>
         <thead>
@@ -24,7 +35,7 @@
             <td> <input name="wishlistId" type="hidden" th:value="${wishlist.wishListId}"></td>
             <td> <input name="itemName" type="text" placeholder="Item Name"></td>
             <td> <input name="itemPrice" type="text" placeholder="Item Price"></td>
-            <td> <input name="amazonURL" type="text" placeholder="Amazon URL"></td>
+            <td> <input name="amazonURL" type="text" placeholder="Item URL"></td>
             <td> <input name="imageURL" type="text" placeholder="Image URL"></td>
             <td> <input name="submit" type="submit" value="Add Item"></td>
         </tr>

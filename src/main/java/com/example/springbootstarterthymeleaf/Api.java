@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+import static com.example.springbootstarterthymeleaf.database.AmazonScraper.makeItem;
+
 @Controller
 @RequestMapping("/api")
 public class Api {
@@ -74,6 +76,27 @@ public class Api {
         wishList.setItems(itemList);
 
         String url = "redirect:/addItemToWishlist?wishlistId=" + wishlistId;
+        return url;
+    }
+
+    @PostMapping("/addAmazonItemToWishlist")
+    public String addAmazonItemToWishlist(@RequestParam Integer wishlistId, @RequestParam String amazonURL) {
+        WishList wishList = wishlistRepository.findWishListByWishListId(wishlistId);
+        String url = "redirect:/addItemToWishlist?wishlistId=" + wishlistId;
+
+        Item item = makeItem(amazonURL);
+        if (item == null) {
+            // an error message should probably be displayed
+            return url;
+        }
+
+        item.setAmazonURL(amazonURL.substring(0, amazonURL.lastIndexOf('/'))); // make amazon links look pretty
+
+        itemRepository.save(item);
+        List<Item> itemList = wishList.getItems();
+        itemList.add(item);
+        wishList.setItems(itemList);
+
         return url;
     }
 
