@@ -169,6 +169,14 @@ public class SpringBootStarterThymeleafApplication {
 		return "editWishlist";
 	}
 
+	//route for editing items
+	@RequestMapping("/editItem")
+	public String editItem(@RequestParam Integer itemId, Model model) {
+		Item item = itemRepository.findItemByItemId(itemId);
+		model.addAttribute("item", item);
+		return "editItem";
+	}
+
 	//page for adding items to a wishlist
 	@RequestMapping("/addItemToWishlist")
 	public String addItemToWishlist(@RequestParam Integer wishlistId, Model model){

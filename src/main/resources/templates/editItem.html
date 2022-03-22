@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Item</title>
+</head>
+<body>
+
+<h1>Edit Item</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th> Title </th>
+    <th> Author </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:if="${item == null}">
+    <td> Item Unavailable </td>
+  </tr>
+  <tr>
+    <form action="/api/editItem" method="post">
+      <td><input name="itemName" type="text" th:text="${item.itemName}"></td>
+      <td><input name="itemPrice" type="text" th:text="${item.itemPrice}"></td>
+      <td><input name="itemURL" type="text" th:text="${item.amazonURL}"></td>
+      <td><input name="itemPictureURL" type="text" th:text="${item.itemPictureURL}"></td>
+      <input type="hidden" name="itemId" th:value="${item.itemId}">
+      <td><input type="submit" value="Confirm Edits"></td>
+    </form>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

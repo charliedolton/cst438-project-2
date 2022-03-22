@@ -90,6 +90,22 @@ public class Api {
         return "redirect:/editWishlist";
     }
 
+    @PostMapping("/editItem")
+    public String editItem(@RequestParam Integer itemId,
+                           @RequestParam String itemName,
+                           @RequestParam Integer itemPrice,
+                           @RequestParam String amazonURL,
+                           @RequestParam String itemPictureURL) {
+        Item item = itemRepository.findItemByItemId(itemId);
+        item.setItemName(itemName);
+        item.setItemPrice(itemPrice);
+        item.setAmazonURL(amazonURL);
+        item.setItemPictureURL(itemPictureURL);
+        itemRepository.save(item);
+
+        return "redirect:/homePage";
+    }
+
     @PostMapping("/createWishlist")
     public String createWishlist(@RequestParam String wishlistName,
                                  @RequestParam Integer userId) {
