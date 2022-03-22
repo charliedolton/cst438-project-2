@@ -24,9 +24,9 @@ public class AmazonScraperTest {
         Item testItem = makeItem(AmazonURL);
 
         assert(expectedItem.getItemName().equals(Objects.requireNonNull(testItem).getItemName()));
-        assert (expectedItem.getAmazonURL().equals(testItem.getAmazonURL()));
-        assert (expectedItem.getItemPictureURL().equals(testItem.getItemPictureURL()));
-        assert (expectedItem.getItemPrice().equals(testItem.getItemPrice()));
+        assert(expectedItem.getAmazonURL().equals(testItem.getAmazonURL()));
+        assert(expectedItem.getItemPictureURL().equals(testItem.getItemPictureURL()));
+        assert(expectedItem.getItemPrice().equals(testItem.getItemPrice()) || expectedItem.getItemPrice() == -1);
     }
 
     @Test
@@ -43,16 +43,16 @@ public class AmazonScraperTest {
         Item testItem = makeItem(AmazonURL);
 
         assert(expectedItem.getItemName().equals(Objects.requireNonNull(testItem).getItemName()));
-        assert (expectedItem.getAmazonURL().equals(testItem.getAmazonURL()));
-        assert (expectedItem.getItemPictureURL().equals(testItem.getItemPictureURL()));
-        assert (expectedItem.getItemPrice().equals(testItem.getItemPrice()));
+        assert(expectedItem.getAmazonURL().equals(testItem.getAmazonURL()));
+        assert(expectedItem.getItemPictureURL().equals(testItem.getItemPictureURL()));
+        assert(expectedItem.getItemPrice().equals(testItem.getItemPrice()) || expectedItem.getItemPrice() == -1);
     }
 
     @Test
     void badURLTest() {
         String AmazonURL = "https://www.amazon.com/bad_link_1231231";
         Item testItem = makeItem(AmazonURL);
-        assert (testItem == null);
+        assert(testItem == null);
     }
 
     @Test
@@ -62,7 +62,7 @@ public class AmazonScraperTest {
 
         String ImageURL = getImageURL(AmazonURL);
 
-        assert (expectedImageURL.equals(ImageURL));
+        assert(expectedImageURL.equals(ImageURL));
     }
 
     @Test
@@ -72,6 +72,6 @@ public class AmazonScraperTest {
 
         String ImageURL = getImageURL(AmazonURL);
 
-        assert (expectedImageURL.equals(ImageURL));
+        assert(expectedImageURL.equals(ImageURL));
     }
 }
