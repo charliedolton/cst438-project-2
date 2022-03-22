@@ -90,7 +90,7 @@ public class Api {
             return url;
         }
 
-        item.setAmazonURL(amazonURL.substring(0, amazonURL.lastIndexOf('/'))); // make amazon links look pretty
+        item.setAmazonURL(amazonURL.substring(0, (amazonURL.indexOf("/dp/")) + 14)); // make amazon links look pretty
 
         itemRepository.save(item);
         List<Item> itemList = wishList.getItems();
