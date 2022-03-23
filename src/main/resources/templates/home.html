@@ -30,8 +30,14 @@
 <div class="wishlists">
     <table>
         <tr th:each="wishlist : ${user.wishlists}">
-            <td th:text="${wishlist.listName}">List Name</td>
-            <td th:text="${wishlist.getListSize()} + Items in List">List Size</td>
+            <div class="card" style="width: 35rem;">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                    <td th:text="${wishlist.listName}">List Name</td>
+                    <td th:text="${wishlist.getListSize()} + Items in List">List Size</td>
+                    </li>
+                </ul>
+            </div>
         </tr>
     </table>
 </div>
