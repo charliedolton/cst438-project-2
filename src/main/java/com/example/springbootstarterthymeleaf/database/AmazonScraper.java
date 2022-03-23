@@ -45,6 +45,12 @@ public class AmazonScraper {
         item.setItemPictureURL(page.selectFirst("#main-image-container").selectFirst("img[src$=.jpg]").attr("src"));
 
         Element container = page.selectFirst("div.a-box-group");
+
+        if (container == null) { // item price is not available
+            item.setItemPrice(-1);
+            return item;
+        }
+
         Element priceContainer = container.selectFirst("#price");
         String priceString;
 

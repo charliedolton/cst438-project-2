@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+import static com.example.springbootstarterthymeleaf.database.AmazonScraper.makeItem;
+
 @Controller
 @RequestMapping("/api")
 public class Api {
@@ -77,6 +79,27 @@ public class Api {
         return url;
     }
 
+    @PostMapping("/addAmazonItemToWishlist")
+    public String addAmazonItemToWishlist(@RequestParam Integer wishlistId, @RequestParam String amazonURL) {
+        WishList wishList = wishlistRepository.findWishListByWishListId(wishlistId);
+        String url = "redirect:/addItemToWishlist?wishlistId=" + wishlistId;
+
+        Item item = makeItem(amazonURL);
+        if (item == null) {
+            // an error message should probably be displayed
+            return url;
+        }
+
+        item.setAmazonURL(amazonURL.substring(0, (amazonURL.indexOf("/dp/")) + 14)); // make amazon links look pretty
+
+        itemRepository.save(item);
+        List<Item> itemList = wishList.getItems();
+        itemList.add(item);
+        wishList.setItems(itemList);
+
+        return url;
+    }
+
     @PostMapping("/deleteItem")
     public String deleteItem(@RequestParam Integer wishlistId,
                              @RequestParam Integer itemId) {
@@ -87,7 +110,21 @@ public class Api {
         itemRepository.delete(item);
         wishList.setItems(itemList);
 
-        return "redirect:/editWishlist";
+        String url = "redirect:/editWishlist?wishlistId=" + wishList.getWishListId();
+        return url;
+    }
+
+    @PostMapping("/deleteWishlist")
+    public String deleteWishlist(@RequestParam Integer wishlistId,
+                                 @RequestParam Integer userId) {
+        WishList wishList = wishlistRepository.findWishListByWishListId(wishlistId);
+        User user = userRepository.findUserByUserId(userId);
+        List<WishList> wishlists = user.getWishlists();
+        wishlists.remove(wishList);
+        user.setWishlists(wishlists);
+        wishlistRepository.delete(wishList);
+
+        return "redirect:/homePage";
     }
 
     @PostMapping("/createWishlist")
