@@ -34,7 +34,9 @@
         <div class="card" style="width: 45rem" th:each="wishlist : ${user.wishlists}">
                 <ul  class="list-group list-group-flush">
                     <li class="list-group-item">
-                    <span th:text="${wishlist.listName} ">List Name</span> <span th:text="${wishlist.getListSize()} + ' Items in List' ">List Size</span>
+                        <strong th:text="${wishlist.listName} ">List Name</strong>
+                        <br>
+                        <span th:text="${wishlist.getListSize()} + ' Items in List' ">List Size</span>
                     <a th:href="'editWishlist?wishlistId='+ ${wishlist.wishListId}">
                         <img width="25" height="25"  th:src="@{/img/edit.png}">
                     </a>
