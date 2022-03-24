@@ -3,6 +3,7 @@ $("#un").on("change", checkForExixitngUsername);// if you change whats inside th
 async function checkForExixitngUsername() {
     var username = $('[name="username"]').val();
     var result = await fetchData(`/api/userIsTaken?username=${username}`);
+    alert(result);
 
     if(result == true){
         $("#signUpButton").prop('disabled', true);
