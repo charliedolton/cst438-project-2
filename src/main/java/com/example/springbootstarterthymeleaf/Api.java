@@ -4,11 +4,13 @@ package com.example.springbootstarterthymeleaf;
 import com.example.springbootstarterthymeleaf.database.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 import static com.example.springbootstarterthymeleaf.database.AmazonScraper.makeItem;
@@ -138,5 +140,30 @@ public class Api {
         user.setWishlists(wishlists);
 
         return "redirect:/homePage";
+    }
+
+    @PostMapping("/editProfile")
+    public String editProfilePost(HttpSession session, @RequestParam String username,
+                                  @RequestParam String fName, @RequestParam String lName, @RequestParam String picURL) {
+        User user = userRepository.findUserByUsername(((List<String>)session.getAttribute("sessionVar")).get(0));
+
+        user.setUsername(username);
+        user.setFirstName(fName);
+        user.setLastName(lName);
+        user.setPictureURL(picURL);
+
+        return "redirect:/editProfile";
+    }
+
+    @PostMapping("/changePassword")
+    public String changePassword(HttpSession session,
+                                 @RequestParam String oldPassword, @RequestParam String newPassword) {
+        User user = userRepository.findUserByUsername(((List<String>)session.getAttribute("sessionVar")).get(0));
+
+        if (user.getPassword().equals(oldPassword)) {
+            user.setPassword(newPassword);
+        }
+
+        return "redirect:/editProfile";
     }
 }

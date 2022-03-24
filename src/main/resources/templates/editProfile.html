@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Gift-ish</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/css/css.css">
+  <link th:href = "@{assets/css/main.css}" rel="stylesheet">
+  <link rel="stylesheet" href="/cst438-project-2/src/main/resources/static/assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="css/noscript.css" /></noscript>
+</head>
+<body>
+<div id="page-wrapper">
+
+  <!-- Header -->
+  <header id="header">
+    <h1 id="logo"><a href="homePage">Gift-ish</a></h1>
+  </header>
+
+  <div class="form-container" style="width:40%; margin:0 auto">
+    <br><h1>Edit Profile</h1>
+    <form name="signup" class="form-location" method="POST" action="/api/editProfile">
+
+      <input type="text" id="un" name="username" placeholder="Username" th:value="${user.getUsername}" minlength="3">
+      <span id="error"> </span><br>
+      <span id="usernameMessage" class="error-message-small"></span>
+      <input type="text" name="fName" placeholder="Fist Name" th:value="${user.getFirstName}">
+      <br>
+      <input type="text" name="lName" placeholder="Last Name" th:value="${user.getLastName}">
+      <br>
+      <input type="text" name="picURL" placeholder="Profile picture URL" th:value="${user.getPictureURL}" size="30">
+      <br>
+      <button id="signUpButton" type="submit" class="button.large primary"> Submit changes </button>
+
+    </form><br>
+  </div>
+
+  <div class="form-container" style="width:40%; margin:0 auto">
+    <span>Change your password</span>
+    <form name="change_password" class="form-location" method="POST" action="/api/changePassword" >
+      <input type="password" name="newPassword" minlength="3" placeholder="New password">
+      <br>
+      <input type="password" name="oldPassword" minlength="1" placeholder="Old password">
+      <br>
+      <button id="changePasswordButton" type="submit" class="btn btn-light"> Change password</button>
+    </form><br>
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <ul class="icons">
+      <li><a href="https://github.com/charliedolton/cst438-project-2" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+
+    </ul>
+    <ul class="copyright">
+      <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<!-- Scripts -->
+<!--<script src="assets/js/jquery.scrolly.min.js"></script>-->
+<!--<script src="assets/js/jquery.dropotron.min.js"></script>-->
+<!--<script src="assets/js/jquery.scrollex.min.js"></script>-->
+<!--<script src="assets/js/browser.min.js"></script>-->
+<!--<script src="assets/js/breakpoints.min.js"></script>-->
+<!--<script src="assets/js/util.js"></script>-->
+<!--<script src="assets/js/main.js"></script>-->
+
+</body>
+</html>

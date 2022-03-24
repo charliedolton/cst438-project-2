@@ -193,7 +193,17 @@ public class SpringBootStarterThymeleafApplication {
 		return "wishList";
 	}
 
+	@RequestMapping("/editProfile")
+	public String editProfile(Model model, HttpSession session) {
+		if (!isAuthenticated(session)){
+			// User is not logged in so don't let the user make edits to profile
+			return "login";
+		}
 
+		User user = userRepository.findUserByUsername(((List<String>)session.getAttribute("sessionVar")).get(0));
+		model.addAttribute("user", user);
+		return "editProfile";
+	}
 
 
 	public static void main(String[] args) {

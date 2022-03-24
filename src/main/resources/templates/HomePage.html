@@ -22,7 +22,7 @@
     <div id="h1">
         <h1>Gift~ish</h1>
     </div>
-    <div id ="img" th:switch="${user.getPictureURL().length()}">
+    <div id ="img" th:switch="${user.getPictureURL().length()}" th:onclick="|window.location.href='/editProfile'|">
         <p th:case="0"> <img   width="50" height="50"  th:src="@{/img/nullProfile.png}"></p>
         <p th:case="*" ><img id= "profile" width="66" height="66"  th:src="${user.getPictureURL()}"></p>
     </div>
