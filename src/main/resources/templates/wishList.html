@@ -12,9 +12,9 @@
 <table>
     <tr th:each="item : ${wishlist.items}">
         <td class="wishlistViewItemName" th:text="${item.itemName}"></td>
-        <td class="wishlistViewItemPrice" th:text="${item.itemPrice}"></td>
-        <td class="wishlistViewItemURL" th:text="${item.amazonURL}"></td>
-        <td class="wishlistViewItemImage" th:text="${item.itemPictureURL}"></td>
+        <td class="wishlistViewItemPrice" th:text="'$'${item.itemPrice}"></td>
+        <td class="wishlistViewItemURL" ><a th:link="${item.amazonURL}">Check It Out</a></td>
+        <td class="wishlistViewItemImage" ><img th:text="${item.itemPictureURL}"></td>
         <td><a th:href="'/editItem?itemId=' + ${item.itemId}"> Edit Item </a> </td>
     </tr>
 </table>

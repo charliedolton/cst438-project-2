@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Add an Item to Your Wishlist</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link th:href="@{assets/css/signup.css}" rel="stylesheet"/>
 </head>
 <body>
 
@@ -45,7 +47,9 @@ Or manually:
 
 <br>
 
-<a href="/homePage">Go Back to Homepage</a>
+
+<button id="signUpButton" type="submit" class="btn btn-primary btn-block btn-large" onclick="window.location.href = 'homePage'"> Go Back To Home </button>
+
 
 </body>
 </html>
