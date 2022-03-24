@@ -4,9 +4,9 @@
 
 This app is being created by Olisemedua Onwuatogwu, Osman Safi, Alejandro Ramirez, and Charlie Dolton.
 
-This project will be a wishlist created using springboot.
+This project is a wishlist app created using springboot and thymeleaf.
 
-We will design the database as well as the API the app uses. Intended functionality includes account creation and user login; creating, deleting, and editing a list; creating, deleting, and editing items; sharing a list via a link; and following another user. 
+We designed the database as well as the API the app uses. Implemented functionality includes account creation and user login; creating, deleting, and editing a list; creating, deleting, and editing items as well as automatically adding an item to your wishlist using an Amazon link. 
 
 This is our initial wireframe:
 
