@@ -1,10 +1,7 @@
 <!DOCTYPE HTML>
-<!--
-	Landed by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+
+
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>About Project</title>
     <meta charset="utf-8" />
@@ -17,11 +14,11 @@
 
     <!-- Header -->
     <header id="header">
-        <h1 id="logo"><a href="index.html">Gift-ish</a></h1>
+        <h1 id="logo"><a href="landingPage">Gift-ish</a></h1>
         <nav id="nav">
             <ul>
-                <li><a href="index.html">Login</a></li>
-                <li><a href="#" class="button primary">Sign Up</a></li>
+                <li><a href="login">Login</a></li>
+                <li><a href="signup" class="button primary">Sign Up</a></li>
             </ul>
         </nav>
     </header>
@@ -29,7 +26,7 @@
 
     <!-- One -->
     <section id="one" class="spotlight style1 bottom">
-        <span class="image fit main"><img src="images/pic02.jpg" alt="" /></span>
+        <span class="image fit main"><img th:src="@{/img/database.jpg}"/></span>
         <div class="content">
             <div class="container">
                 <div class="row">
@@ -61,15 +58,22 @@
 
     <!-- Two -->
     <section id="two" class="spotlight style2 right">
-        <span class="image fit main"><img src="images/pic03.jpg" alt="" /></span>
+        <span class="image fit main"><img th:src="@{/img/api.jpg}" alt="" /></span>
         <div class="content">
             <header>
                 <h2>API Implementation</h2>
                 <p>Charlie Dolton</p>
             </header>
-            <p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan consequat adipiscing lorem.</p>
+            <p>Charlie worked on the API routes and integrating the API into the rest of the app.
+                The most challenging part of this was getting the logic of the queries and how the
+                results integrate into the page correct. Another challenge was learning how to properly
+                use Thymeleaf. A major victory was connecting all the pages together to the point you
+                could actually add items to and display items from the database. Overall, the API portion
+                of the project was successful, though the routes for both the API and the website could
+                have been much more efficient in terms of the number of queries.
+            </p>
             <ul class="actions">
-                <li><a href="#" class="button">Learn More</a></li>
+
             </ul>
         </div>
         <a href="#three" class="goto-next scrolly">Next</a>
@@ -77,15 +81,18 @@
 
     <!-- Three -->
     <section id="three" class="spotlight style3 left">
-        <span class="image fit main bottom"><img src="images/pic04.jpg" alt="" /></span>
+        <span class="image fit main bottom"><img th:src="@{/img/backend.jpg}" alt="" /></span>
         <div class="content">
             <header>
                 <h2>Backend/ Frontend</h2>
-                <p>Accumsan integer ultricies aliquam vel massa sapien phasellus</p>
+                <p>By Olisemedua Onwuatogwu</p>
             </header>
-            <p>Feugiat accumsan lorem eu ac lorem amet ac arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer mi sed nascetur cep aliquet augue varius tempus lobortis porttitor lorem et accumsan consequat adipiscing lorem.</p>
+            <p> He implemented the back and front ends of the website. He implemented the
+                logic for the signup page, the signout functionality, and sessions for the
+                backend. For the front end, he worked on the CSS for the homepage.
+            </p>
             <ul class="actions">
-                <li><a href="#" class="button">Learn More</a></li>
+
             </ul>
         </div>
         <a href="#four" class="goto-next scrolly">Next</a>
@@ -93,7 +100,7 @@
 
     <!-- One -->
     <section id="four" class="spotlight style1 bottom">
-        <span class="image fit main"><img src="images/pic02.jpg" alt="" /></span>
+        <span class="image fit main"><img th:src="@{/img/frontend.png}" alt=""  /></span>
         <div class="content">
             <div class="container">
                 <div class="row">
@@ -104,18 +111,11 @@
                         </header>
                     </div>
                     <div class="col-4 col-12-medium">
-                        <p>Feugiat accumsan lorem eu ac lorem amet sed accumsan donec.
-                            Blandit orci porttitor semper. Arcu phasellus tortor enim mi
-                            nisi praesent dolor adipiscing. Integer mi sed nascetur cep aliquet
-                            augue varius tempus lobortis porttitor accumsan consequat
-                            adipiscing lorem dolor.</p>
+                        <p>Osman assisted on the front end of the website, making sure
+                            the layout looked presentable.
+                        </p>
                     </div>
                     <div class="col-4 col-12-medium">
-                        <p>Morbi enim nascetur et placerat lorem sed iaculis neque ante
-                            adipiscing adipiscing metus massa. Blandit orci porttitor semper.
-                            Arcu phasellus tortor enim mi mi nisi praesent adipiscing. Integer
-                            mi sed nascetur cep aliquet augue varius tempus. Feugiat lorem
-                            ipsum dolor nullam.</p>
                     </div>
                 </div>
             </div>
@@ -126,11 +126,9 @@
     <!-- Footer -->
     <footer id="footer">
         <ul class="icons">
-            <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="https://github.com/charliedolton/cst438-project-2" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
         </ul>
-        <ul class="copyright">
-            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-        </ul>
+
     </footer>
 
 </div>
