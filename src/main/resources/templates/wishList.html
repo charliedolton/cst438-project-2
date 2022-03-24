@@ -2,7 +2,9 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Name of WishList</title>
+    <title>View wishlist</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link th:href="@{assets/css/signup.css}" rel="stylesheet"/>
 </head>
 <body>
 
@@ -11,11 +13,11 @@
 
 <table>
     <tr th:each="item : ${wishlist.items}">
-        <td class="wishlistViewItemName" th:text="${item.itemName}"></td>
-        <td class="wishlistViewItemPrice" th:text="'$'${item.itemPrice}"></td>
-        <td class="wishlistViewItemURL" ><a th:link="${item.amazonURL}">Check It Out</a></td>
-        <td class="wishlistViewItemImage" ><img th:src="${item.itemPictureURL}"></td>
-        <td><a th:href="'/editItem?itemId=' + ${item.itemId}"> Edit Item </a> </td>
+        <td class="wishlistViewItemName" th:text="${item.itemName} "></td>
+        <td class="wishlistViewItemPrice" th:text="'$'+ ${item.itemPrice} "></td>
+        <td><a th:href="${item.amazonURL}">Check it out</a> </td>
+        <td class="wishlistViewItemImage" ><img width="65" height="65" th:src="${item.itemPictureURL}"></td>
+        <td><a th:href="'editItem?itemId=' + ${item.itemId}"> Edit Item </a> </td>
     </tr>
 </table>
 <a th:href="'editWishlist?wishlistId='+ ${wishlist.wishListId}">Edit This Wishlist</a>
