@@ -27,4 +27,5 @@ And this is our initial ERD:
 Jsoup was used to create the Amazon scraper which allows a user to add an automatically created item to their wishlist by just using an Amazon URL.
 
 [JQuery](https://jquery.com/)
-- jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers.
+- "jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers."
+(from https://jquery.com/)
