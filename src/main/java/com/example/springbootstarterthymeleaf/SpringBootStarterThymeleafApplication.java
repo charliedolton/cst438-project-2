@@ -187,6 +187,7 @@ public class SpringBootStarterThymeleafApplication {
 	@RequestMapping("/editProfile")
 	public String editProfile(Model model, HttpSession session) {
 		if (!isAuthenticated(session)){
+			// User is not logged in so don't let the user make edits to profile
 			return "login";
 		}
 
