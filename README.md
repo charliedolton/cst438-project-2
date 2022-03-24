@@ -21,7 +21,7 @@ And this is our initial ERD:
 
 [JSoup](https://jsoup.org/)
 
-"jsoup is a Java library for working with real-world HTML. It provides a very convenient API for fetching URLs and extracting and manipulating data, using the best of HTML5 DOM methods and CSS selectors."   
+- "jsoup is a Java library for working with real-world HTML. It provides a very convenient API for fetching URLs and extracting and manipulating data, using the best of HTML5 DOM methods and CSS selectors."   
 (from https://jsoup.org/)   
 
-Jsoup was used to create the Amazon web scraper which allows a user to add an automatically created item to their wishlist by just using an Amazon URL.
+Jsoup was used to create the Amazon scraper which allows a user to add an automatically created item to their wishlist by just using an Amazon URL.
