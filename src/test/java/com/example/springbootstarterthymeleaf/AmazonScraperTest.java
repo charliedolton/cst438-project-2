@@ -19,14 +19,12 @@ public class AmazonScraperTest {
         expectedItem.setItemName("Hashtag Collectibles Pepe The Frog - The Official Plush Doll (Anatomically Correct)");
         expectedItem.setItemPictureURL("https://images-na.ssl-images-amazon.com/images/I/61dnV42UYaL.__AC_SX300_SY300_QL70_ML2_.jpg");
         expectedItem.setAmazonURL(AmazonURL);
-        expectedItem.setItemPrice(34); // this price can not be guaranteed to be right
 
         Item testItem = makeItem(AmazonURL);
 
         assert(expectedItem.getItemName().equals(Objects.requireNonNull(testItem).getItemName()));
         assert(expectedItem.getAmazonURL().equals(testItem.getAmazonURL()));
         assert(expectedItem.getItemPictureURL().equals(testItem.getItemPictureURL()));
-        assert(expectedItem.getItemPrice().equals(testItem.getItemPrice()) || expectedItem.getItemPrice() == -1);
     }
 
     @Test
@@ -38,14 +36,12 @@ public class AmazonScraperTest {
         expectedItem.setItemName("Sonichu #0");
         expectedItem.setItemPictureURL("https://images-na.ssl-images-amazon.com/images/I/51F9RP7npiL._SX218_BO1,204,203,200_QL40_ML2_.jpg");
         expectedItem.setAmazonURL(AmazonURL);
-        expectedItem.setItemPrice(10); // this price can not be guaranteed to be right
 
         Item testItem = makeItem(AmazonURL);
 
         assert(expectedItem.getItemName().equals(Objects.requireNonNull(testItem).getItemName()));
         assert(expectedItem.getAmazonURL().equals(testItem.getAmazonURL()));
         assert(expectedItem.getItemPictureURL().equals(testItem.getItemPictureURL()));
-        assert(expectedItem.getItemPrice().equals(testItem.getItemPrice()) || expectedItem.getItemPrice() == -1);
     }
 
     @Test
